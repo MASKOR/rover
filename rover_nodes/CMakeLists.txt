@@ -5,6 +5,8 @@ project(rover_nodes)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  genmsg
+  message_generation
   std_msgs
   sensor_msgs
   roscpp
@@ -65,11 +67,9 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   joy_msgs
-# )
-
+generate_messages(
+   mavros
+)
 ###################################
 ## catkin specific configuration ##
 ###################################
