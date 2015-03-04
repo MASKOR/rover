@@ -4,13 +4,7 @@ compiler:
   #- clang
 env:
   global:
-    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-    #   via the "travis encrypt" command using the project repo's public key
-    #- secure: "ieyA/jKHN1rVAQ8qFvXx6wdcUozFR5QBxUpQuEcItl4yv0bPnRp0xO9X/BhNFt6V85L8jEw9XNz4uHTUeAtghZZxpKCQ8de1NP49d7boyCTLQx/WsJ/bSPubAZOcnvbi9SoOTyymM94jdA1k46ndznI1ZZ713uSrPdIcg6o8Q9A="
     - ROS_DISTRO=hydro # wait until travis will update to 14.04
-  matrix:
-    #- MAVLINK_DIALECT=common
-    #- MAVLINK_DIALECT=pixhawk
 
 before_install:
   - export CI_SOURCE_PATH=$(pwd)
@@ -48,18 +42,6 @@ after_failure:
   - if [ -e ./build/Testing/Temporary/LastTest.log ]; then cat ./build/Testing/Temporary/LastTest.log; fi
   - find ${HOME}/.ros/test_results -type f -exec echo "== {} ==" \; -exec cat {} \;
   - for file in ${HOME}/.ros/log/rostest-*; do echo "=== $file ==="; cat $file; done
-
-#addons:
-#  coverity_scan:
-#    project:
-#      name: "MASKOR/rover"
-#      description: "Build submitted via Travis CI"
-#    notification_email: stuettgen@fh-aachen.de
-#    build_command_prepend: cd ~/ros/ws_$REPOSITORY_NAME/src/rover &&
-#      ln -s /opt/ros/$ROS_DISTRO/share/catkin/cmake/toplevel.cmake CMakeLists.txt &&
-#      cmake .
-#    build_command: make -j4
-#    branch_pattern: coverity_scan
 
 notifications:
  webhooks:
