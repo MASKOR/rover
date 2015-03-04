@@ -1,0 +1,9 @@
+/*
+  ROS teleop node for the pixhawk autopilot
+  
+  Copyright 2015 Marcel Stüttgen <stuettgen@fh-aachen.de>
+*/
+
+
+#include<ros/ros.h>
+#include<mavros/ActuatorControl>

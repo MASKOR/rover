@@ -1,0 +1,8 @@
+plugin_blacklist:
+- '3dr_radio'
+- 'image_pub'
+- 'setpoint_velocity'
+- 'setpoint_position'
+- 'setpoint_accel'
+- 'setpoint_attitude'
+#- 'actuator_control'

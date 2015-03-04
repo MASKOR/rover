@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+	<!--connect -->
+	<include file="$(find rover_bringup)/launch/px4.launch"/>
+
+	<!-- data publisher for mavros -->
+	<!-- plain topic publisher based on ros_params -->
+	<node pkg="rover_nodes" type="actuator_controls_publisher" name="actuator_controls_publisher"/>
+	<!-- joystick teleop -->
+	<!--node pkg="rover_nodes" type="pixhawk_teleop" name="pixhawk_teleop"/-->
+
+
+	<!-- tfs -->
+	<include file="$(find rover_bringup)/launch/tf.launch"/>
+	
+	<!-- openni camera -->
+	<!--include file="$(find openni2_launch)/launch/openni2.launch"/-->
+
+</launch>
