@@ -5,8 +5,7 @@ project(rover_nodes)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  genmsg
-  message_generation
+  message_runtime
   std_msgs
   sensor_msgs
   roscpp
