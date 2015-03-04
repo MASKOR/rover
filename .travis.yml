@@ -37,7 +37,7 @@ script:
   - cd ~/ros/ws_$REPOSITORY_NAME
   - catkin_make -j4
   #- catkin_make install
-  - rm -fr devel src build; source install/setup.bash
+  # - rm -fr devel src build; source install/setup.bash
 
 after_failure:
   - if [ -e ./build/Testing/Temporary/LastTest.log ]; then cat ./build/Testing/Temporary/LastTest.log; fi
