@@ -107,7 +107,8 @@ add_executable(pixhawk_teleop src/pixhawk_teleop.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-# add_dependencies(rover_nodes_node rover_nodes_generate_messages_cpp)
+add_dependencies(actuator_controls_publisher mavros_generate_messages_cpp)
+add_dependencies(pixhawk_teleop mavros_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(actuator_controls_publisher
