@@ -67,7 +67,6 @@ int main(int argc, char *argv[])
     ros::init(argc, argv, "pixhawk_teleop");
     ros::Rate r(10);
 
-    printf("test\n");
     //Create an object of class that will take care of everything
     PixhawkTeleop p;
     while(ros::ok()) {
