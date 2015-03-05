@@ -44,6 +44,7 @@ class PixhawkTeleop {
 
   //publish actuator control msg to pixhawk
   void _publish() {
+    ROS_INFO("_publish()");
     mavros::ActuatorControl a_c_msg;
     a_c_msg.header.stamp = ros::Time::now();
     a_c_msg.group_mix = 0;
@@ -65,14 +66,14 @@ int main(int argc, char *argv[])
 {
     //Initiate ROS
     ros::init(argc, argv, "pixhawk_teleop");
-    ros::Rate r(10);
-
+   
     //Create an object of class that will take care of everything
     PixhawkTeleop p;
     while(ros::ok()) {
       //need to publish frequently because pixhawk will go into failsafe mode else
+      ros::Rate r(10);
       p.publish();
-      ros::spin();
+      ros::spinOnce();
       r.sleep();
     }
   return 0;
