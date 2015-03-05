@@ -1,0 +1,7 @@
+pixhawk_teleop:
+  joy_topic: /test
+  actuator_controls_topic: /test
+  deadman_button: 5
+  throttle_axis: 5
+  steering_axis: 7
+  joy_msg_timeout: 5

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+	<node pkg="rover_nodes" type="pixhawk_teleop" name="pixhawk_teleop" output="screen" ns="pixhawk_teleop"/>       
+	<rosparam file="$(find rover_nodes)/launch/pixhawk_teleop.yaml" command="load"/>
+</launch>
