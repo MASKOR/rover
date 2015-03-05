@@ -5,9 +5,11 @@ project(rover_nodes)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_runtime
   std_msgs
   sensor_msgs
   roscpp
+  mavros
 )
 
 ## System dependencies are found with CMake's conventions
@@ -65,11 +67,9 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   joy_msgs
-# )
-
+#generate_messages(
+#   mavros
+#)
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -108,7 +108,8 @@ add_executable(pixhawk_teleop src/pixhawk_teleop.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-# add_dependencies(rover_nodes_node rover_nodes_generate_messages_cpp)
+add_dependencies(actuator_controls_publisher mavros_generate_messages_cpp)
+add_dependencies(pixhawk_teleop mavros_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(actuator_controls_publisher
