@@ -1,0 +1,3 @@
+[submodule "maskor_navigation"]
+	path = maskor_navigation
+	url = https://github.com/maskor/maskor_navigation
