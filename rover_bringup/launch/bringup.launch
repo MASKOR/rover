@@ -7,12 +7,12 @@
 
 	<!-- data publisher for mavros -->
 	<!-- plain topic publisher based on ros_params -->
-	<!--node pkg="rover_nodes" type="actuator_controls_publisher" name="actuator_controls_publisher"/-->
+	<node pkg="rover_nodes" type="actuator_controls_publisher" name="actuator_controls_publisher"/>
 	
 	<!-- joystick teleop -->
-	<include file="$(find rover_nodes)/launch/pixhawk_teleop.launch">
+	<!--include file="$(find rover_nodes)/launch/pixhawk_teleop.launch">
 		<arg name="pixhawk_teleop_yaml" value="$(find rover_node)/launch/pixhawk_teleop.yaml" />
-	</include>
+	</include-->
 
 	<!-- tfs -->
 	<include file="$(find rover_bringup)/launch/tf.launch"/>
