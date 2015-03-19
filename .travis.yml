@@ -18,10 +18,10 @@ before_install:
     # Setup rosdep
   - sudo rosdep init
   - rosdep update
+  - git clone https://github.com/mavlink/mavros
   - git submodule init
   - git submodule update
-  - git clone https://github.com/mavlink/mavros
-
+ 
 
 install:
   # Create workspace
@@ -38,7 +38,7 @@ before_script:
   - rospack profile
 script:
   - cd ~/ros/ws_$REPOSITORY_NAME
-  - catkin_make
+  - catkin_make -j8
   #- catkin_make install
   # - rm -fr devel src build; source install/setup.bash
 
