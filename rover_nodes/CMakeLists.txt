@@ -103,7 +103,7 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-add_executable(actuator_controls_publisher src/actuator_controls_publisher.cpp)
+add_executable(actuator_control_publisher src/actuator_control_publisher.cpp)
 add_executable(pixhawk_teleop src/pixhawk_teleop.cpp)
 
 ## Add cmake target dependencies of the executable/library
@@ -112,7 +112,7 @@ add_dependencies(actuator_controls_publisher mavros_generate_messages_cpp)
 add_dependencies(pixhawk_teleop mavros_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(actuator_controls_publisher
+target_link_libraries(actuator_control_publisher
    ${catkin_LIBRARIES}
 )
 target_link_libraries(pixhawk_teleop
