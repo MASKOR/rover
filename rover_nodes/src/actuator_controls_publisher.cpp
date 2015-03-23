@@ -2,7 +2,7 @@
 
 Copyright Marcel Stüttgen 2015 <stuettgen@fh-aachen.de>
 
-simple ros node that will publish ActuatorControl message to /mavros/setpoint/actuator_controls
+simple ros node that will publish ActuatorControl message to /mavros/setpoint/actuator_control
 
  */
 
@@ -13,9 +13,9 @@ simple ros node that will publish ActuatorControl message to /mavros/setpoint/ac
 
 int main(int argc, char *argv[])
 {
-  ros::init(argc, argv, "actuator_controls_publisher");
+  ros::init(argc, argv, "actuator_control_publisher");
   ros::NodeHandle nh;
-  ros::Publisher actuator_controls_pub = nh.advertise<mavros::ActuatorControl>("/mavros/actuator_controls", 1000);   
+  ros::Publisher actuator_controls_pub = nh.advertise<mavros::ActuatorControl>("/mavros/actuator_control", 1000);   
   ros::Rate loop_rate(10);
 
   double ros_roll;
