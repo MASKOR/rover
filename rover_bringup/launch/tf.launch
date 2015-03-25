@@ -9,27 +9,16 @@
  	<arg name="optical_rotate" value="0 0 0 -$(arg pi/2) 0 -$(arg pi/2)" />
 	<arg name="imu_rotate" value="0 0 0 -$(arg pi/2) 0 0" />
 
-	<!-- fake odom -->  	
-	<node pkg="tf" type="static_transform_publisher" name="scanmatcher_to_base_link" 
-	      args="0 0 0 0 0 0 scanmatcher_frame static_odom_fake 10" />
-
-	<!-- fake odom -->  	
-	<node pkg="tf" type="static_transform_publisher" name="fake_no_odom" 
-	      args="0 0 0 0 0 0 static_odom_fake base_link 10" />
 	<!-- base_footprint to base_link -->
-	<!--node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" 
-	      args="0 0 0.102 0 0 0 base_footprint base_link 10"/-->
+	<node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" 
+	      args="0 0 0.102 0 0 0 base_footprint base_link 10"/>
 	
-	<!-- base_link to imu_base_link-->
+	<!-- base_link to imu_link-->
   	<node pkg="tf" type="static_transform_publisher" name="base_link_to_imu_base_link" 
-	      args="-0.06 0.0 0.105 0 0 0 base_link imu_base_link 10" />
-	
-	<!-- imu_base_link to imu_link -->  	
-	<node pkg="tf" type="static_transform_publisher" name="base_imu_link_to_imu_link" 
-	      args="$(arg imu_rotate) imu_base_link imu_link 10" />
+	      args="-0.0 0.0 0.115 0 0 0 base_link imu_link 10" />
 
 	<!-- base_link to base_laser -->  	
-	<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" 
-	      args="0.1 0 0.1 0 0 0 base_link laser 10" />
+	<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_link" 
+	      args="0.075 0 0.115 0 0 0 base_link laser_link 10" />
 
 </launch>
