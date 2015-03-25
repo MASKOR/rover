@@ -2,12 +2,17 @@
 
 <launch>
 
-	<!--connect -->
+	<!--connect to pixhawk -->
 	<include file="$(find rover_bringup)/launch/px4.launch"/>
-        <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" />
-        <include file="$(find rover_bringup)/launch/hector_slam.launch"/>
-        <!--include file="$(find sbpl_lattice_planner)/launch/move_base/move_base_sbpl.xml"/ -->
+ 
+	<!-- hector slam -->
+	<include file="$(find rover_bringup)/launch/hector_slam.launch"/>
 
+        <!-- hokuyo laser scan -->
+	<inlcude file="$(find rover_bringup)/launch/hokuyo.launch"/>
+
+	<!-- sbpl lattice planner-->
+	<!--include file="$(find sbpl_lattice_planner)/launch/move_base/move_base_sbpl.xml"/ -->
 
 	<!-- data publisher for mavros -->
 	<!-- plain topic publisher based on ros_params -->
