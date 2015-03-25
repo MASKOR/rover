@@ -4,10 +4,15 @@
 
 	<!--connect -->
 	<include file="$(find rover_bringup)/launch/px4.launch"/>
+        <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" />
+        <include file="$(find rover_bringup)/launch/hector_slam.launch"/>
+        <!--include file="$(find sbpl_lattice_planner)/launch/move_base/move_base_sbpl.xml"/ -->
+
 
 	<!-- data publisher for mavros -->
 	<!-- plain topic publisher based on ros_params -->
-	<node pkg="rover_nodes" type="actuator_controls_publisher" name="actuator_controls_publisher"/>
+	<!--node pkg="rover_nodes" type="actuator_controls_publisher" name="actuator_controls_publisher"/ -->
+	<node pkg="rover_nodes" type="cmd_vel_to_actuator" name="cmd_vel_to_actuator"/>
 	
 	<!-- joystick teleop -->
 	<!--include file="$(find rover_nodes)/launch/pixhawk_teleop.launch">
