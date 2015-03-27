@@ -24,10 +24,9 @@ before_install:
 install:
   # Create workspace
   - mkdir -p ~/ros/ws_$REPOSITORY_NAME/src
-  - cd ~/ros/ws_$REPOSITORY_NAME/src/$REPOSITORY_NAME
+  - cd ~/ros/ws_$REPOSITORY_NAME
   - git submodule init
   - git submodule update
-  - cd ..
   - wstool init .
   - ln -s $CI_SOURCE_PATH . # Link the repo we are testing to the new workspace
   - cd ../
