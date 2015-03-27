@@ -25,7 +25,7 @@ install:
   # Create workspace
   - mkdir -p ~/ros/ws_$REPOSITORY_NAME/src
   - cd ~/ros/ws_$REPOSITORY_NAME/src
-  - cd $REPOSITORY_NAME
+  - cd ($REPOSITORY_NAME)
   - git submodule init
   - git submodule update
   - cd ..
