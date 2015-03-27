@@ -1,6 +1,6 @@
 pixhawk_teleop:
-  joy_topic: /test
-  actuator_controls_topic: /test
+  joy_topic: /joy
+  actuator_controls_topic: /cmd_vel
   deadman_button: 5
   throttle_axis: 5
   steering_axis: 7
