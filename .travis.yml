@@ -19,7 +19,6 @@ before_install:
   - sudo rosdep init
   - rosdep update
   - git clone https://github.com/mavlink/mavros
-  - cd rover
   - git submodule init
   - git submodule update
 
