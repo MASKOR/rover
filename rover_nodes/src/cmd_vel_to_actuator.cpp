@@ -11,10 +11,17 @@
 #include <geometry_msgs/Twist.h>
 #include <string>
 
+#define CMD_VEL_ADDITION_VALUE = 0.05
+#define CMD_VEL_ITERATOR_THRESHOLD = 0.05
+
 class CmdVelToActuator {
  public:
   void cmd_vel_callback(const geometry_msgs::Twist& vel_cmd)
   {
+//     if (fabs(vel_cmd.linear.x - throttle_) > CMD_VEL_ITERATOR_THRESHOLD)
+//     {
+//        throttle_ = vel_cmd.linear.x 
+//     }
      throttle_ = vel_cmd.linear.x;
      yaw_ = -vel_cmd.angular.z;
 //     mavros::ActuatorControl a_c_msg;
@@ -57,7 +64,7 @@ class CmdVelToActuator {
       throttle_(0.0)
   {
     nh_.param<std::string>("cmd_vel_topic", cmd_vel_topic_, "/cmd_vel");
-    nh_.param<std::string>("actuator_controls_topic", actuator_controls_topic_, "/mavros/actuator_controls");
+    nh_.param<std::string>("actuator_controls_topic", actuator_controls_topic_, "/mavros/actuator_control");
 
     cmd_vel_sub_ = nh_.subscribe(cmd_vel_topic_, 1, &CmdVelToActuator::cmd_vel_callback, this);
     actuator_control_pub_ = nh_.advertise<mavros::ActuatorControl>(actuator_controls_topic_, 1);

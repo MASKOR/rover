@@ -6,10 +6,10 @@
 	<include file="$(find rover_bringup)/launch/px4.launch"/>
  
 	<!-- hector slam -->
-	<include file="$(find rover_bringup)/launch/hector_slam.launch"/>
+	<!-- include file="$(find rover_bringup)/launch/hector_slam.launch"/-->
 
         <!-- hokuyo laser scan -->
-	<include file="$(find rover_bringup)/launch/hokuyo.launch"/>
+	<!-- include file="$(find rover_bringup)/launch/hokuyo.launch"/-->
 
 	<!-- sbpl lattice planner-->
 	<!-- include file="$(find sbpl_lattice_planner)/launch/move_base_sbpl.launch"/ -->
@@ -20,10 +20,11 @@
 	<node pkg="rover_nodes" type="cmd_vel_to_actuator" name="cmd_vel_to_actuator"/>
 	
 	<!-- joystick teleop -->
-	<!--include file="$(find rover_nodes)/launch/pixhawk_teleop.launch">
-		<arg name="pixhawk_teleop_yaml" value="$(find rover_node)/launch/pixhawk_teleop.yaml" />
-	</include-->
 
+
+
+	<node pkg="rover_nodes" type="pixhawk_teleop" name="pixhawk_teleop" output="screen" ns="thrustmaster"/>       
+	<rosparam file="$(find rover_nodes)/launch/pixhawk_teleop.yaml" command="load"/>
 	<!-- tfs -->
 	<include file="$(find rover_bringup)/launch/tf.launch"/>
 	

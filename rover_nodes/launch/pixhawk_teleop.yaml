@@ -1,7 +1,31 @@
 pixhawk_teleop:
   joy_topic: /joy
-  actuator_controls_topic: /cmd_vel
+  cmd_vel_topic: /cmd_vel
   deadman_button: 5
-  throttle_axis: 5
-  steering_axis: 7
+  speed_button: 7
+  throttle_axis: 3
+  throttle_scale: 0.3
+  steering_axis: 0
   joy_msg_timeout: 5
+
+thrustmaster:
+  joy_topic: /joy
+  cmd_vel_topic: /cmd_vel
+  deadman_button: 5
+  speed_button: 7
+  throttle_axis: 3
+  throttle_scale: 0.4
+  steering_axis: 0
+  joy_msg_timeout: 5
+
+logitech_steeringwheel:
+  joy_topic: /joy
+  cmd_vel_topic: /cmd_vel
+  deadman_button: 1
+  speed_button: 6
+  throttle_axis: 2
+  throttle_scale: 0.3
+  steering_axis: 0
+  steering_scale: 3.0
+  joy_msg_timeout: 5
+  steering_wheel: true
