@@ -107,6 +107,8 @@ include_directories(
 add_executable(actuator_control_publisher src/actuator_control_publisher.cpp)
 add_executable(pixhawk_teleop src/pixhawk_teleop.cpp)
 add_executable(cmd_vel_to_actuator src/cmd_vel_to_actuator.cpp)
+add_executable(cmd_vel_to_can src/cmd_vel_to_can.cpp)
+
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
@@ -124,6 +126,10 @@ target_link_libraries(cmd_vel_to_actuator
    ${catkin_LIBRARIES}
 )
 
+target_link_libraries(cmd_vel_to_can
+   ${catkin_LIBRARIES}
+   /usr/lib/libpcan.so 
+)
 
 #############
 ## Install ##
