@@ -105,7 +105,7 @@ include_directories(
 
 ## Declare a cpp executable
 add_executable(actuator_control_publisher src/actuator_control_publisher.cpp)
-add_executable(pixhawk_teleop src/pixhawk_teleop.cpp)
+add_executable(teleop src/teleop.cpp)
 add_executable(cmd_vel_to_actuator src/cmd_vel_to_actuator.cpp)
 add_executable(cmd_vel_to_can src/cmd_vel_to_can.cpp)
 
@@ -119,7 +119,7 @@ add_dependencies(actuator_control_publisher mavros_generate_messages_cpp)
 target_link_libraries(actuator_control_publisher
    ${catkin_LIBRARIES}
 )
-target_link_libraries(pixhawk_teleop
+target_link_libraries(teleop
    ${catkin_LIBRARIES}
 )
 target_link_libraries(cmd_vel_to_actuator
